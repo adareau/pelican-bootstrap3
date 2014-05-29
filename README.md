@@ -39,6 +39,12 @@ This theme honors the following standard Pelican settings:
 
 It uses the `tag_cloud` variable for displaying tags in the sidebar. You can control the amount of tags shown with: `TAG_CLOUD_MAX_ITEMS`
 
+###  `DISPLAY_PAGES_ON_MENU`:
+
+Each page *must* define a "Priority" attribute as a number between 0 and 9. 
+Pages with '0' priority will not appear in the menu, priority '1' will appear
+first, '2' second, and so forth.
+
 ## Extras
 
 ### Article info
@@ -90,6 +96,7 @@ You can choose the syntax highlighting style by using the `PYGMENTS_STYLE` varia
 - vim
 - vs
 - zenburn
+- goerz
 
 For a demo of the different Pygment styles, have a look [here](http://pygments.org/demo/218030/)
 
@@ -142,6 +149,24 @@ SOCIAL = (('twitter', 'http://twitter.com/DaanDebie'),
           ('linkedin', 'http://www.linkedin.com/in/danieldebie'),
           ('github', 'http://github.com/DandyDev'),)
 ```
+
+* **Contact** links
+
+Contact links consist of a
+[Font-Awesome](http://fortawesome.github.io/Font-Awesome/icons/) symbol, a link
+text, and the link URL, liks this:
+
+```
+CONTACT = (('fa-envelope-o', 'goerz@physik.uni-kassel.de', 'mailto:goerz@phsik.uni-kassel.de'),
+           ('fa-skype', 'michaelgoerz', 'skype:michaelgoerz?chat'),
+          )
+```
+
+* **Externals** links
+
+The `EXTERNALS` variable takes the same form as `CONTACTS`. It is intended as an
+alternative to `LINKS`, adding icons to the links.
+
 * **Tags** will be shown if `DISPLAY_TAGS_ON_SIDEBAR` is set to _True_. Normally, tags are shown as a list.
 	* Set `DISPLAY_TAGS_INLINE` to _True_, to display the tags inline (ie. as tagcloud)
 * **Categories** will be shown if `DISPLAY_CATEGORIES_ON_SIDEBAR` is set to _True_
@@ -209,17 +234,4 @@ In order to make the Facebook like button work better, the template contains Ope
 ### Footer
 
 The footer will display a copyright message using the AUTHOR variable and the year of the latest post. If a content license mark is enabled (see above), that will be shown as well. 
-
-## Live example
-
-[This is my website](http://dandydev.net)
-
-If you want more examples of what you could do with this theme, have a [look here](EXAMPLES.md).
-
-## Screenshot
-
-![](screenshot.png)
-
-![](screenshot-article.png)
-
 
