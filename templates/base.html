@@ -106,10 +106,12 @@
                     <li><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
-                    {% for p in PAGES %}
+                    {% for p in PAGES|sort(attribute='priority') %}
+                         {% if p.priority|int > 0 %}
                          <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">
                              {{ p.title }}
                           </a></li>
+                         {% endif %}
                       {% endfor %}
                 {% endif %}
                 {% if DISPLAY_CATEGORIES_ON_MENU %}
