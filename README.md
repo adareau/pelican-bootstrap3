@@ -39,12 +39,6 @@ This theme honors the following standard Pelican settings:
 
 It uses the `tag_cloud` variable for displaying tags in the sidebar. You can control the amount of tags shown with: `TAG_CLOUD_MAX_ITEMS`
 
-###  `DISPLAY_PAGES_ON_MENU`:
-
-Each page *must* define a "Priority" attribute as a number between 0 and 9. 
-Pages with '0' priority will not appear in the menu, priority '1' will appear
-first, '2' second, and so forth.
-
 ## Extras
 
 ### Article info
