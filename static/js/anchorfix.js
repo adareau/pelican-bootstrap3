@@ -12,6 +12,7 @@ function offsetAnchor() {
 // This will capture hash changes while you are on the same page
 $(window).on("hashchange", function () {
     offsetAnchor();
+    location.hash && $(location.hash + '.collapse').collapse('show');
 });
 
 // This is here so that when you enter the page with a hash,
