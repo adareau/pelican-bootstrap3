@@ -40,13 +40,12 @@
             </div>
             <!-- /.entry-content -->
             {% include 'includes/related-posts.html' %}
-            {% include 'includes/addthis.html' %}
-            {% include 'includes/comments.html' %}
         </article>
     </section>
 
   <hr/>
 
+  <div class="panel-body">
   <section id="prev_next">
     <ul>
     {% if article.prev_article %}
@@ -65,5 +64,8 @@
     {% endif %}
     </ul>
   </section>
+  </div>
+
+  {% include 'includes/comments.html' %}
 
 {% endblock %}

@@ -1,0 +1,65 @@
+<script type="text/javascript">
+
+  function reply(id, name)
+  {
+    id = decodeURIComponent(id);
+    name = decodeURIComponent(name);
+    $('html, body').animate({ scrollTop: $("#addcomment").offset().top }, 1000);
+    $('#addcomment h4').html('Add a Comment in reply to <a href="#comment-' + id + '">' + name
+      + '</a> <button type="button" class="close" aria-hidden="true" onclick="cancelReply();">&times; <small>Cancel reply</small></button> ');
+    $('#commentForm_replyto').val(id);
+  }
+
+  function cancelReply()
+  {
+    $('#commentForm_replyto').val("");
+    $('#addcomment h4').html('Add a Comment');
+  }
+
+  $(document).ready(function()
+  {
+      function generateMailToLink()
+      {
+          var user = 'goerz'; //user@domain = your email address
+          var domain = 'physik.uni-kassel.de';
+          {% if article %}
+          var subject = 'Comment for \'{{ article.slug }}\'' ;
+          {% elif page %}
+          var subject = 'Comment for \'{{ page.slug }}\'' ;
+          {% endif %}
+
+          var d = new Date();
+          var body = ''
+              + 'Hi!\nThis is a comment on' + document.URL + '\n\n\n'
+              + '----------------------------------------\n'
+              + 'date: ' + d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + '\n'
+              + 'author: ' + $("#commentForm_inputName").val() + '\n'
+              + 'gravatar: [email]\n';
+
+          var replyto = $('#commentForm_replyto').val();
+          if (replyto.length != 0)
+          {
+              body += 'replyto: ' + replyto + '\n'
+          }
+
+          body += '\n'
+              + $("#commentForm_inputText").val() + '\n'
+              + '----------------------------------------\n';
+
+          var link = 'mailto:' + user + '@' + domain + '?subject='
+              + encodeURIComponent(subject)
+              + "&body="
+              + encodeURIComponent(body);
+          return link;
+      }
+
+
+      $('#commentForm').on("submit",
+          function( event )
+          {
+              event.preventDefault();
+              $(location).attr('href', generateMailToLink());
+          }
+      );
+  });
+</script>
