@@ -154,8 +154,33 @@ figure.floatcenter, .align-center {
     margin-right: 10px;
 }
 
-.tagcloud li {
-    padding: 0px;
+div.tagcloud {
+  text-align: center;
+  padding-left:5em;
+  padding-right:5em;
+  padding-top:2em;
+  padding-bottom:3em;
+}
+
+ul.tagcloud {
+  list-style: none;
+    padding: 0;
+}
+
+ul.tagcloud li {
+    display: inline-block;
+}
+
+#prev_next ul {
+    list-style: none;
+}
+
+#categories_tags_link {
+    font-size: larger;
+    text-align: right;
+    padding-top: 0em;
+    padding-bottom: 3em;
+    padding-right: 2em;
 }
 
 form.search {

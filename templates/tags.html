@@ -13,7 +13,16 @@
 
 {% block content %}
     <section id="tags">
-        <h1>Tags for {{ SITENAME }}</h1>
+        <h1>Tags</h1>
+
+       <div class="tagcloud">
+       <ul class="tagcloud">
+           {% for tag in tag_cloud %}
+               <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/tags.html#collapse-{{ tag.0.slug }}">{{ tag.0 }}</a></li>
+           {% endfor %}
+       </ul>
+       </div>
+
         <div class="panel-group" id="accordion">
             {%- for tag, articles in tags|sort %}
             <div class="panel panel-default">

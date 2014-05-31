@@ -45,4 +45,25 @@
         </article>
     </section>
 
+  <hr/>
+
+  <section id="prev_next">
+    <ul>
+    {% if article.prev_article %}
+        <li class="fa fa-chevron-circle-left align-left">
+            <a href="{{ SITEURL }}/{{ article.prev_article.url}}">
+                {{ article.prev_article.title }}
+            </a>
+        </li>
+    {% endif %}
+    {% if article.next_article %}
+        <li class="fa fa-chevron-circle-right align-right">
+            <a href="{{ SITEURL }}/{{ article.next_article.url}}">
+                {{ article.next_article.title }}
+            </a>
+        </li>
+    {% endif %}
+    </ul>
+  </section>
+
 {% endblock %}
