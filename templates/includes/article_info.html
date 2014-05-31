@@ -11,14 +11,18 @@
     {% endif %}
 
     {% if SHOW_ARTICLE_CATEGORY %}
+        <div>
         <span class="label label-default">Category</span>
         <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+        </div>
     {% endif %}
 
     {% if PDF_PROCESSOR %}
+        <div>
         <span class="label label-default">
             <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
         </span>
+        </div>
     {% endif %}
 
     {% include 'includes/taglist.html' %}
