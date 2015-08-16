@@ -92,7 +92,11 @@
                         {% include "includes/article_info.html" %}
                     </div>
                 </div>
+                {% if article.exturl %}
+                <i class="fa fa-external-link"></i> <a href="{{ article.exturl }}">{{ article.exturl }}</a>
+                {% else %}
                 {{ article.content }}
+                {% endif %}
             </div>
             <!-- /.entry-content -->
             {% include 'includes/related-posts.html' %}
@@ -122,7 +126,9 @@
   </section>
   </div>
 
+  {% if not article.exturl %}
   {% include 'includes/comments.html' %}
+  {% endif %}
 
 {% endblock %}
 
