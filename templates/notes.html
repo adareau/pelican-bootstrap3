@@ -10,33 +10,14 @@
   <a href="{{ SITEURL }}/{{ TAGS_URL | default('tags.html') }}"><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></a>
 </div>
 
-{% for year, year_articles in articles|groupby('date.year')|sort(reverse=True) %}
-<!--<div class="panel-group" id="accordion">-->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ year }}">{{ year }} <span class="badge pull-right">{{ year_articles|count }}</span></a>
-        </h4>
-    </div>
-    {% if year|int > 2010 %}
-    <div id="collapse-{{ year }}" class="panel-collapse collapse in">
-    {% else %}
-    <div id="collapse-{{ year }}" class="panel-collapse collapse">
-    {% endif %}
-      <div class="panel-body">
-        {% for article in year_articles %}
-        <p><span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
-        &nbsp;
-        {% if article.exturl %}
-        <i class="fa fa-external-link"></i> <a href="{{ article.exturl }}">{{ article.title }}</a>
-        {% else %}
-        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-        {% endif %}
-        </p>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-<!--</div>-->
+{% for article in articles|sort(attribute='date',reverse=True) %}
+  <p><span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
+  &nbsp;
+  {% if article.exturl %}
+  <i class="fa fa-external-link"></i> <a href="{{ article.exturl }}">{{ article.title }}</a>
+  {% else %}
+  <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+  {% endif %}
+  </p>
 {% endfor %}
 {% endblock %}
