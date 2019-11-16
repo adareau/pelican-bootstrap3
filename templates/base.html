@@ -122,10 +122,12 @@
                 {% endfor %}
                 {% if page %}
                   <li{% if page.category == "Research" %} class="active"{% endif %}><a href="{{ SITEURL }}/"> Research </a></li>
+                  <li{% if page.category == "Programming" %} class="active"{% endif %}><a href="{{ SITEURL }}/programming.html"> Programming </a></li>
                   <li{% if page.category == "Studies" %} class="active"{% endif %}><a href="{{ SITEURL }}/studies/"> Studies </a></li>
                   <li{% if page.category == "Refcards" %} class="active"{% endif %}><a href="{{ SITEURL }}/refcards/"> Refcards </a></li>
                 {% else %}
                   <li><a href="{{ SITEURL }}/"> Research </a></li>
+                  <li><a href="{{ SITEURL }}/programming.html"> Programming </a></li>
                   <li><a href="{{ SITEURL }}/studies/"> Studies </a></li>
                   <li><a href="{{ SITEURL }}/refcards/"> Refcards </a></li>
                 {% endif %}
